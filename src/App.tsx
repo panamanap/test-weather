@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { Information } from './components/Information';
+import { Header } from './components/Header';
+
+import './App.scss';
+
+import { APIKEY } from './utils/constants';
+
+type cityInfo = {
+    name: string;
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [cityName, setCityName] = React.useState('Minsk');
+    const [cityInfo, setCityInfo] = React.useState<cityInfo>({ name: '' });
+
+    React.useEffect(() => {
+        fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKEY}`
+        )
+            .then((res) => res.json())
+            .then((json) => setCityInfo(json));
+    }, []);
+
+    return (
+        <div className="app">
+            <div className="mainPage">
+                <Header {...cityInfo} />
+                <Information />
+            </div>
+        </div>
+    );
 }
 
 export default App;
