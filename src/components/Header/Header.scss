@@ -9,6 +9,9 @@ $bc-color:  #6E8BA6;
     border-radius: 5px 5px 0 0;
 
     h1{
+        width: 30%;
+        display: flex;
+        justify-content: center;
         text-transform: uppercase;
         font-weight: 100;
     }
@@ -16,22 +19,30 @@ $bc-color:  #6E8BA6;
     .infoToday {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        margin: 0;
-         
+        align-items: center;
+        box-sizing: border-box;
+        height: 100%;
+        padding: 10px;
+
         p{
+            width: 250px;
             margin: 0;
             font-size: 20px;
         }
 
         .weatherToday {
             display: flex;
-            justify-content: center;
+            width: 115px;
+            justify-content: space-evenly;
             align-items: center;
-             
+
             p{
+                margin: 0;
+                width: 50%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
                 font-size: 30px;
-                margin-left: 10px;
             }
         }
     }

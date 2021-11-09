@@ -1,11 +1,12 @@
 import "./Button.scss";
 
 type ButtonProps = {
-    btn: string;
+    btn: string,
+    setCityName: (btn: string) => void,
 }
 
-export const Button: React.FC<ButtonProps> = ({btn}) => {
+export const Button: React.FC<ButtonProps> = ({btn, setCityName}) => {
     return (
-        <button className="cityBtn">{btn}</button>
+        <button onClick={() => setCityName(btn)} className="cityBtn">{btn}</button>
     )
 }

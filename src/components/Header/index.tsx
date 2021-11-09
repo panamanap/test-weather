@@ -1,18 +1,34 @@
+import { CurrentType, LocationType } from '../../pages/Home';
+import { days } from '../../utils/constants';
+
 import './Header.scss';
 
 type HeaderProps = {
-    name: string;
-}
+    current?: CurrentType;
+    location?: LocationType;
+};
 
-export const Header: React.FC<HeaderProps> = ({name}) => {
+const date = new Date();
+const indexDay = date.getDay();
+
+export const Header: React.FC<HeaderProps> = ({ location, current }) => {
+
+
     return (
         <header className="header">
-            <h1>{name}</h1>
-            <div className="infoToday">
-                <p>Monday, 08.11.2021</p>
+            <h1>{location?.name}</h1>
+            <div className="infoToday"> 
+                <p>
+                    {`${days[indexDay]}, ${location?.localtime}`}
+                </p>
                 <div className="weatherToday">
-                    <img width="55" height="55" src="assets/partly_cloudy.png" alt="Weater today" />
-                    <p>3°C</p>
+                    <img
+                        width="55"
+                        height="55"
+                        src={current?.condition.icon}
+                        alt="Weater today"
+                    />
+                    <p>{current?.temp_c}°C</p>
                 </div>
             </div>
         </header>

@@ -1,17 +1,19 @@
+import { DayType } from '../../../pages/Home';
+import { days } from '../../../utils/constants';
 import './InfoItem.scss';
 
 type InfoProps = {
-    day: string;
-    image: string;
-    temperature: string;
+    date: string;
+    day: DayType;
+    dayOfWeek: number
 };
 
-export const InfoItem: React.FC<InfoProps> = ({ day, image, temperature }) => {
+export const InfoItem: React.FC<InfoProps> = ({ date, day, dayOfWeek}) => {
     return (
         <div className="infoPerDay">
-            {day}
-            <img src={image} alt="OtherWeather" />
-            {temperature}
+            <p>{`${days[dayOfWeek]}, ${date}`}</p>
+            <img src={day.condition.icon} alt="OtherWeather" />
+            <p>{`${Math.floor(day.avgtemp_c)}°C`}</p>
         </div>
     );
 };

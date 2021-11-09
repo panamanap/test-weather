@@ -2,40 +2,30 @@ import { InfoItem } from './InfoItem';
 import { Menu } from '../Menu';
 
 import './Information.scss';
+import { ForecastType } from '../../pages/Home';
 
-type otherDays = {
-    day: string;
-    image: string;
-    temperature: string;
+type InformationProps = {
+    forecast?: ForecastType;
+    setCityName: (btn: string) => void;
 };
 
-const arr: Array<otherDays> = [
-    {
-        day: 'Tue',
-        temperature: '6°  -2°',
-        image: 'assets/partly_cloudy.png',
-    },
-    {
-        day: 'Wed',
-        temperature: '2°  -5°',
-        image: 'assets/partly_cloudy.png',
-    },
-    {
-        day: 'Thu',
-        temperature: '3°  -2°',
-        image: 'assets/cloudy.png',
-    },
-];
+const nowDate = new Date();
+const indexToday = nowDate.getDay();
 
-export const Information = () => {
+const indexDay: number = indexToday + 1
+
+export const Information: React.FC<InformationProps> = ({
+    forecast,
+    setCityName,
+}) => {
     return (
         <main className="weatherInfo">
             <div className="otherDays">
-                {arr.map((info, index) => (
-                    <InfoItem key={index} {...info}></InfoItem>
+                {forecast?.forecastday?.map((day, index) => (
+                    <InfoItem key={day.date} {...day} dayOfWeek={indexDay + index}></InfoItem>
                 ))}
             </div>
-            <Menu />
+            <Menu setCityName={setCityName} />
         </main>
     );
 };
