@@ -1,4 +1,4 @@
-import { DayType } from '../../../pages/Home';
+import { DayType } from '../../../App';
 import { days } from '../../../utils/constants';
 import './InfoItem.scss';
 

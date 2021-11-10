@@ -2,65 +2,23 @@ import React from 'react';
 
 import { Information } from '../components/Information';
 import { Header } from '../components/Header';
+import { CityInfo } from '../App';
 
-import { APIKEY } from '../utils/constants';
+type HomeProps = {
+    cityInfo: CityInfo,
+    cityName: string,
+    setCityName: (btn: string) => void,
+}
 
-type ConditionType = {
-    icon: string;
-};
-
-export type CurrentType = {
-    temp_c: number;
-    condition: ConditionType;
-};
-
-export type LocationType = {
-    name: string;
-    localtime: string;
-};
-
-export type ForecastType = {
-    forecastday?: Array<DaysType>;
-};
-
-type DaysType = {
-    date: string;
-    day: DayType;
-};
-
-export type DayType = {
-    avgtemp_c: number;
-    condition: ConditionType;
-};
-
-type CityInfo = {
-    location?: LocationType;
-    current?: CurrentType;
-    forecast?: ForecastType;
-};
-
-export function Home() {
-    const [cityName, setCityName] = React.useState('Minsk');
-    const [cityInfo, setCityInfo] = React.useState<CityInfo>({});
-
-    console.log(cityInfo);
-
-    React.useEffect(() => {
-        try {
-            fetch(
-                `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${cityName}&days=10&aqi=no&alerts=no`
-            )
-                .then((res) => res.json())
-                .then((json) => setCityInfo(json));
-        } catch (e) {
-            alert('Ошибка получения данных');
-        }
-    }, [cityName]);
+export const Home: React.FC<HomeProps> = ({cityInfo, cityName, setCityName}) => {
+    if (!cityInfo) {
+        return <div className="loadingPage">Loading...</div>;
+    }
 
     return (
-        <div className="mainPage">
-            <Header {...cityInfo} />
+        <div className="page">
+            <Header cityName={cityName} {...cityInfo} />
             <Information {...cityInfo} setCityName={setCityName} />
         </div>
     );
-}
+};

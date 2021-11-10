@@ -2,7 +2,7 @@ import { InfoItem } from './InfoItem';
 import { Menu } from '../Menu';
 
 import './Information.scss';
-import { ForecastType } from '../../pages/Home';
+import { ForecastType } from '../../App';
 
 type InformationProps = {
     forecast?: ForecastType;

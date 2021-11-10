@@ -8,14 +8,18 @@
     color: #fff;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
-    .mainPage {
+    .loadingPage {
         width: 40%;
         min-height: 60%;
         background-color: #3E5F7C;  
         border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
     }
 
-    .forecastPage {
+    .page {
         width: 40%;
         min-height: 60%;
         background-color: #3E5F7C;  
@@ -25,10 +29,7 @@
 
 @media (max-width: 900px) {
     .app{
-        .mainPage {
-            min-height: 50%;
-        }
-        .forecastPage {
+        .page {
             min-height: 50%;
         }
     }
