@@ -10,8 +10,21 @@ $bc-color: #6E8BA6;
     color: #fff;
     cursor: pointer;
     transition: transform .2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:active {
         transform: scale(0.9);
+    }
+}
+
+@media (max-width: 900px) {
+    .cityBtn {
+        box-sizing: border-box;
+        padding: 15px;
+        width: 70px;
+        height: 20px;
+        font-size: 10px;
     }
 }

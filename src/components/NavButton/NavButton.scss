@@ -1,0 +1,33 @@
+a {
+    text-decoration: none;
+}
+
+.navBtn {
+    font-size: 15px;
+    width: 70px;
+    height: 20px;   
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: transform .2s ease-in-out;
+    background-color: #3a6185;
+
+    &:active {
+        transform: scale(0.9);
+    }    
+}
+
+@media (max-width: 900px) {
+    .navBtn {
+        box-sizing: border-box;
+        padding: 15px;
+        width: 50px;
+        height: 10px;
+        font-size: 10px;
+    }
+}

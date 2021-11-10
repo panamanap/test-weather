@@ -6,37 +6,37 @@ import { Header } from '../components/Header';
 import { APIKEY } from '../utils/constants';
 
 type ConditionType = {
-    icon: string,
-}
+    icon: string;
+};
 
 export type CurrentType = {
-    temp_c: number,
-    condition: ConditionType,
+    temp_c: number;
+    condition: ConditionType;
 };
 
 export type LocationType = {
-    name: string,
-    localtime: string,
-}
+    name: string;
+    localtime: string;
+};
 
 export type ForecastType = {
-    forecastday?: Array<DaysType>,
-}
+    forecastday?: Array<DaysType>;
+};
 
 type DaysType = {
-    date: string, 
-    day: DayType,
-}
+    date: string;
+    day: DayType;
+};
 
 export type DayType = {
-    avgtemp_c: number,
-    condition: ConditionType
-}
+    avgtemp_c: number;
+    condition: ConditionType;
+};
 
 type CityInfo = {
-    location?: LocationType,
-    current?: CurrentType,
-    forecast?: ForecastType,
+    location?: LocationType;
+    current?: CurrentType;
+    forecast?: ForecastType;
 };
 
 export function Home() {
@@ -57,13 +57,10 @@ export function Home() {
         }
     }, [cityName]);
 
-
     return (
-        <div className="app">
-            <div className="mainPage">
-                <Header {...cityInfo} />
-                <Information {...cityInfo} setCityName={setCityName} />
-            </div>
+        <div className="mainPage">
+            <Header {...cityInfo} />
+            <Information {...cityInfo} setCityName={setCityName} />
         </div>
     );
 }
