@@ -1,0 +1,21 @@
+.dayName {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    li {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .active {
+        color: #c5d9eb;
+    }
+
+    li + li {
+        margin-left: 50px;
+    }
+}

@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { Home } from './pages/Home';
+import { HorlyWheater } from './pages/HourlyWheater';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchWeatherInformation } from './redux/actions/weatherAction';
+import { useTypedSelector } from './hooks/useTypedSelector';
+import { Button } from './components/Button';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const dispatch = useDispatch();
+    const { forecast } = useTypedSelector((state) => state.weatherReducer);
 
+    const [cityName, setCityName] = React.useState<string>('Minsk');
+
+    React.useEffect(() => {
+        dispatch(fetchWeatherInformation(cityName));
+    }, [cityName]);
+
+
+    if (!forecast) {
+        setCityName('Minsk');
+        window.location.reload();
+
+    }
+
+    return (
+        <div className="wrapper">
+            <Header />
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <Home cityName={cityName} setCityName={setCityName} />
+                    }
+                />
+                <Route path="/:idCity" element={<HorlyWheater />} />
+                <Route path="*" element={<Navigate replace to="/" />} />
+            </Routes>
+            <Footer />
+        </div>
+    );
+}
 export default App;

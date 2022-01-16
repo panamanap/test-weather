@@ -1,0 +1,40 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+
+    input {
+        padding: 5px 5px 0 10px;
+        margin-right: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #000;
+    }
+
+    input::placeholder {
+        color: #cccccc;
+    }
+
+    button {
+        padding: 7px 10px;
+        font-size: 14px;
+        font-weight: 500;
+        min-width: 120px;
+        box-shadow: 0px 0px 2px #777;
+        background-color: #f2f3f4;
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+        user-select: none;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    button:active {
+        box-shadow: 0px 0px 3px #ccc;
+        transition: box-shadow 0.1s;
+    }
+}

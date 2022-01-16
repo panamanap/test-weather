@@ -1,0 +1,9 @@
+.hourly-wheater {
+    display: flex;
+    flex-flow: row wrap;
+
+    .day {
+        width: 150px;
+        margin: 10px;
+    }
+}
