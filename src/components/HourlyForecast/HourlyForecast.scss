@@ -1,10 +1,20 @@
 .hourly-wheater {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     justify-content: center;
 
     .day {
         width: 150px;
         margin: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .hourly-wheater {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
     }
 }
