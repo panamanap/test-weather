@@ -3,14 +3,13 @@ import { BasicInformation } from '../components/BasicInformation';
 import { Form } from '../components/Form';
 
 interface HomeProps {
-    cityName: string;
     setCityName: (action: string) => void;
 }
 
-export const Home: React.FC<HomeProps> = ({ cityName, setCityName }) => {
+export const Home: React.FC<HomeProps> = ({ setCityName }) => {
     return (
         <div className="homepage">
-            <Form cityName={cityName} setCityName={setCityName}></Form>
+            <Form setCityName={setCityName}></Form>
             <BasicInformation />
         </div>
     );

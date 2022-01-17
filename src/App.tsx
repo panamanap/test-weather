@@ -12,9 +12,7 @@ import { useTypedSelector } from './hooks/useTypedSelector';
 function App() {
     const dispatch = useDispatch();
 
-    const { location, forecast } = useTypedSelector(
-        (state) => state.weatherReducer
-    );
+    const { forecast } = useTypedSelector((state) => state.weatherReducer);
 
     const [cityName, setCityName] = React.useState<string>('Minsk');
 
@@ -33,9 +31,7 @@ function App() {
             <Routes>
                 <Route
                     path="/weather-forecast-app"
-                    element={
-                        <Home cityName={cityName} setCityName={setCityName} />
-                    }
+                    element={<Home setCityName={setCityName} />}
                 />
 
                 <Route

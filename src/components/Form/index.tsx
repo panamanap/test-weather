@@ -2,11 +2,10 @@ import React from 'react';
 import './Form.scss';
 
 interface FormProps {
-    cityName: string;
     setCityName: (action: string) => void;
 }
 
-export const Form: React.FC<FormProps> = ({ cityName, setCityName }) => {
+export const Form: React.FC<FormProps> = ({ setCityName }) => {
     const [text, setText] = React.useState('');
 
     const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -16,7 +16,7 @@ body {
     margin: 50px auto;
     background-color: #ffffff;
     min-height: 600px;
-    max-width: 1080px;
+    max-width: 80%;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,7 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 }
 
@@ -40,7 +41,7 @@ body {
     margin: 50px auto;
     background-color: #ffffff;
     min-height: 600px;
-    max-width: 1080px;
+    max-width: 80%;
     border-radius: 20px;
     display: flex;
     justify-content: center;

@@ -9,6 +9,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     .active {
@@ -17,5 +18,22 @@
 
     li + li {
         margin-left: 50px;
+    }
+}
+
+@media (max-width: 650px) {
+    .dayName {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        li {
+            text-align: center;
+            padding: 15px;
+        }
+
+        li + li {
+            margin-left: 0;
+        }
     }
 }
