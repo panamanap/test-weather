@@ -10,6 +10,7 @@ export const Header: React.FC = () => {
         (state) => state.weatherReducer
     );
     const locat = useLocation();
+
     const date = forecast.forecastday[0].date.split('-').reverse().join('.');
     const cityName = location.name;
     const icon = current.condition.icon;
@@ -18,7 +19,7 @@ export const Header: React.FC = () => {
 
     return (
         <header className="header">
-            <Link to={`/`}>
+            <Link to={`/weather-forecast-app/${cityName}`}>
                 <h1>
                     Wheater
                     <span className="city"> {cityName}</span>
@@ -32,13 +33,15 @@ export const Header: React.FC = () => {
                     <p>{temp}℃</p>
                 </div>
             </div>
-            {locat.pathname === '/' ? (
+            {locat.pathname === '/weather-forecast-app' ? (
                 <Button>
-                    <Link to={`/${cityName}`}>Hourly wheater</Link>
+                    <Link to={'/weather-forecast-app/horly'}>
+                        Hourly wheater
+                    </Link>
                 </Button>
             ) : (
                 <Button>
-                    <Link to={`/`}>Wheater today</Link>
+                    <Link to={'/weather-forecast-app'}>Wheater today</Link>
                 </Button>
             )}
         </header>

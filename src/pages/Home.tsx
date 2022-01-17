@@ -10,7 +10,7 @@ interface HomeProps {
 export const Home: React.FC<HomeProps> = ({ cityName, setCityName }) => {
     return (
         <div className="homepage">
-            <Form setCityName={setCityName}>{cityName}</Form>
+            <Form cityName={cityName} setCityName={setCityName}></Form>
             <BasicInformation />
         </div>
     );

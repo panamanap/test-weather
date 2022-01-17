@@ -2,11 +2,11 @@ import React from 'react';
 import './Form.scss';
 
 interface FormProps {
-    children: string;
+    cityName: string;
     setCityName: (action: string) => void;
 }
 
-export const Form: React.FC<FormProps> = ({ children, setCityName }) => {
+export const Form: React.FC<FormProps> = ({ cityName, setCityName }) => {
     const [text, setText] = React.useState('');
 
     const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +31,6 @@ export const Form: React.FC<FormProps> = ({ children, setCityName }) => {
         if (text.length === 0) {
             return;
         }
-
         setCityName(text);
         setText('');
     };

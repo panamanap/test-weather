@@ -24,7 +24,7 @@ export const Categories: React.FC<CategoriesProps> = ({
                 <li key={`${name}_${index}`} onClick={() => onSelectDay(index)}>
                     <p className={active === index ? 'active' : ''}>{name}</p>
                     <p className={active === index ? 'active' : ''}>
-                        {forecast.forecastday[index].date
+                        {forecast.forecastday[index]?.date
                             .split('-')
                             .reverse()
                             .join('.')}
