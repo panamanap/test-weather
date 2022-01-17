@@ -6,7 +6,7 @@ export const fetchWeatherInformation =
     (cityName: string) => (dispatch: Dispatch<WeatherAction>) => {
         try {
             fetch(
-                `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${cityName}&days=3&aqi=no&alerts=no`
+                `https://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${cityName}&days=3&aqi=no&alerts=no`
             )
                 .then((res) => res.json())
                 .then((json) =>
