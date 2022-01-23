@@ -33,7 +33,8 @@ export const Header: React.FC = () => {
                     <p>{temp}℃</p>
                 </div>
             </div>
-            {locat.pathname === '/weather-forecast-app' ? (
+            {locat.pathname === '/weather-forecast-app' ||
+            locat.pathname === '/weather-forecast-app/' ? (
                 <Button>
                     <Link to={'/weather-forecast-app/horly'}>
                         Hourly wheater
